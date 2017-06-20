@@ -25,38 +25,32 @@
 		<div class="splash1 col-xs-1"></div>
 		<div class="splash1 col-xs-1"></div>
 		<div class="splash1 col-xs-1"></div>
-		<div class="splash1 col-xs-1"></div>
-		<div class="splash1 col-xs-1"></div>
-		<div class="splash1 col-xs-1"></div>
-		<div class="splash1 col-xs-1"></div>
+		<div class="splash1 col-xs-4" id="wordbelow">Word:</div>
 		<div class="splash1 col-xs-1"></div>
 		<div class="splash1 col-xs-1"></div>
 		<div class="splash1 col-xs-1"></div>
 		<div class="splash1 col-xs-1"></div>
 	</div>
 	<div class="row" id="row4">
-		<div class="splash2 col-xs-1" id="space1"></div>
-		<div class="splash2 col-xs-1" id="space2"></div>
-		<div class="splash2 col-xs-1" id="space3"></div>
-		<div class="splash2 col-xs-1" id="space4"></div>
-		<div class="splash2 col-xs-1" id="space5"></div>
-		<div class="splash2 col-xs-1" id="space6"></div>
-		<div class="splash2 col-xs-1" id="space7"></div>
-		<div class="splash2 col-xs-1" id="space8"></div>
-		<div class="splash2 col-xs-1" id="space9"></div>
-		<div class="splash2 col-xs-1" id="space10"></div>
-		<div class="splash2 col-xs-1" id="space11"></div>
-		<div class="splash2 col-xs-1" id="space12"></div>
+		<div class="splash2 col-xs-1 qmark" id="space1">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space2">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space3">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space4">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space5">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space6">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space7">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space8">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space9">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space10">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space11">?</div>
+		<div class="splash2 col-xs-1 qmark" id="space12">?</div>
 	</div>
 	<div class="row" id="row5">
 		<div class="splash3 col-xs-1"></div>
 		<div class="splash3 col-xs-1"></div>
 		<div class="splash3 col-xs-1"></div>
 		<div class="splash3 col-xs-1"></div>
-		<div class="splash3 col-xs-1"></div>
-		<div class="splash3 col-xs-1"></div>
-		<div class="splash3 col-xs-1"></div>
-		<div class="splash3 col-xs-1"></div>
+		<div class="splash3 col-xs-4"><h2 id="guesstext">Guesses: (<span id="guessesLeft">6</span>)</h2></div>
 		<div class="splash3 col-xs-1"></div>
 		<div class="splash3 col-xs-1"></div>
 		<div class="splash3 col-xs-1"></div>
@@ -68,8 +62,8 @@
 		<input type="text" name="letter" size="1"></input><br />
 		<button type="button" id="buttonGuess">Try It</button>
 	</form>
-	<h2 id="guesstext">Guesses (<span id="guessesLeft">6</span>):</h2>
-	<!-- progress bar div that animates background color to fill 1/6 of bar over 1 second with every wrong guess; and maybe screen gets darker or changes color? 1000px X 40px-->
+	<div class="row"></div>
+		<div class="col-xs-12" id="failBar"></div>
 <script src="stylesheets/main.js"></script>
 </body>
 </html>
