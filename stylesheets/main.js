@@ -1,71 +1,3 @@
-// create object prototype for new word/round; contain hint text, array of letters from word, space assignments for letters
-
-// in #row4- take text from input box, create/use checkLetter function to check if input letter equals (===) any letter from letter array of that correct guess word; if so, display that letter in assigned space; if not, fill guessbar another 1/6 and decrease guessesLeft by 1
-
-
-// Cam's help:
-// var secretWord = "Word"; //= this.words[this.currentWord] ??
-
-// var userGuess = 'any letter'; //= letterGuess = guessForm.querySelector("input[type=text]").value
-
-// secretWord.toLowerCase().split('').reduce( function(arr,letter,index) {
-//   if( letter == userGuess ) {
-//     arr.push(index);
-//   }
-//   return arr;
-// }, []);
-
-
-// // trying to use objects:
-// function Word(secretWord,hint,indexAssign) {
-// 	this.secretWord = secretWord;
-// 	this.hint = hint;
-// 	this.indexAssign = ; //??
-// }
-
-// // creating Round constructor:
-// function Round(){
-// 	//the following arrays are parallel; 
-// 	this.words = []; //our word object
-// 	this.currentWord = 0; 
-// }
-
-// // to add a word:
-// Round.prototype.addWord = function(){
-// 	word = this.words[this.currentWord];
-//   	if( word instanceof Word ) {
-//     	this.words.push( word );
-//     	// document.getElementById('').innerHTML = ;
-//     	return true;
-//   	} else {
-//     	return false;
-//   	};
-// 	console.log(arguments);
-// }
-
-// // define this Round and add my words:
-// var myRound = new Round;
-// myRound.addWord(new Word('porpoise', 'Animal'),new Word('tiger', 'Animal'));
-
-// var letterIndex = word.secretWord.indexOf(letterGuess);
-// 			// console.log(letterIndex);
-
-
-		// ALTERNATE METHOD:
-	// randomly choose one of the words
-	// word = words[1]
-	// word[secretWord]
-	// word[hint]
-	// var secretWord = "Word";
-	// var hint = "Animal";
-
-// qmark.filter( function(_,i){
-				// 	return i >= secretWordLength;
-				// }).forEach( function(el) {
-				// 	el.innerText = '';
-				// });
-
-
 let guessbutton;
 document.addEventListener("DOMContentLoaded", function(){
 	// define key value pairs for different secret words and hints:
@@ -88,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	space12 = document.querySelector("#space12");
 	var guessCounter = 6;
 	var failBar = document.getElementById('failBar');
+	var failText = document.getElementById('failText');
 	secretWordLength = word.secretWord.length;
 	guessForm = document.querySelector("#formGuess");
 	hintText = document.querySelector("#texthint");
@@ -124,9 +57,10 @@ document.addEventListener("DOMContentLoaded", function(){
          		.split("").map(function (letter, i) { if (letter == letterGuess) return i;})
          		.filter(function (v) { return v >= 0; });
 			}
-
+			// create indices variable to represent the index position of the correct letter the user guesses:
 			var indices = charPos(word.secretWord, letterGuess);
 			console.log(indices);
+			// make the correct letter guesses display in corresponding boxes:
 				if ( indices.includes(0) ){
 					space1.innerText = letterGuess;
 				}
@@ -165,15 +99,26 @@ document.addEventListener("DOMContentLoaded", function(){
 				}
 		}
 		else {
-			// correct letterGuess length (1 character) but the letter doesn't match a letter in the array
+			// if letterGuess length is correct but the letter doesn't match a letter in the array, decrease the number of remaining guesses by 1 and display in guessCounter:
 			console.log(guessCounter);
 			guessCounter -= 1;
 			guessesLeft.innerText = guessCounter;
+			// update text on failBar to display number of remaining guesses:
+			failText.innerText = guessCounter + " more wrong guesses allowed...";
+			// change failBar text if there's only 1 guess left:
+			if (guessCounter === 1){
+				failText.innerText = "Only 1 more chance!";
+			}
+			// make the length of failBar decrease by 1/6th with each wrong guess:
 			failBar.className = ("col-xs-" + (guessCounter*2));
+			// make an alert when the user has used all wrong guesses:
 			if (guessCounter == 0){
 				alert("YOU'RE SO STUPID.");
+				// make page reload after the user loses a game:
+				document.location.reload();
 			}
 		}
+		// make the input (letterGuess) blank again after every guess:
 		document.querySelector("input[name=letter]").value = '';
 	});
 });

@@ -47,9 +47,13 @@ button {
 }
 
 #failBar {
-	// width: 1000px;
 	height: 50px;
 	background-image: linear-gradient(90deg, blue, aqua);
+}
+
+#failText {
+	text-align: left;
+	font-size: 20px;
 }
 
 .splash {
